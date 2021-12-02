@@ -4,9 +4,6 @@ FROM public.ecr.aws/lambda/python:3.9
 COPY /pipeline/* ${LAMBDA_TASK_ROOT}/
 COPY README.md ${LAMBDA_TASK_ROOT}
 
-# Install the function's dependencies using file requirements.txt
-# from your project folder.
-
 COPY pyproject.toml poetry.lock ./
 RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
